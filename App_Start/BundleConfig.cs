@@ -25,6 +25,15 @@ namespace ADKT_WebProject
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            bundles.Add(new StyleBundle("~/Content/Watch_css").Include(
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/style.css",
+                      "~/Content/css/font-awesome.css",
+                      "~/Content/css/popuo-box.css",
+                      "~/Content/css/jquery-ui1.css"
+                      ));
         }
     }
 }

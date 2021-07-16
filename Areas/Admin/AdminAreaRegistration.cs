@@ -17,7 +17,8 @@ namespace ADKT_WebProject.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index",Controller="Watches", id = UrlParameter.Optional }
+                new { action = "Index",Controller="Watches", id = UrlParameter.Optional },
+                new[] { "ADKT_WebProject.Areas.Admin.Controllers" }
             );
         }
     }

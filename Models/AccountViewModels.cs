@@ -49,7 +49,7 @@ namespace ADKT_WebProject.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email Address or Username")]
         //[EmailAddress]
         public string Email { get; set; }
 

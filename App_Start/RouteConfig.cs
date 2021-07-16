@@ -16,7 +16,8 @@ namespace ADKT_WebProject
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Watches", action = "Index", id = UrlParameter.Optional },
+                new[] { "ADKT_WebProject.Controllers" }
             );
         }
     }

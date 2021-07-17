@@ -4,6 +4,10 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+.product-sec1 .product-men .men-thumb-item > img{
+    max-width:250px;
+}
 html, body{
 	margin:0;
 	font-size: 100%;

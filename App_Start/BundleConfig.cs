@@ -32,8 +32,26 @@ namespace ADKT_WebProject
                       "~/Content/css/style.css",
                       "~/Content/css/font-awesome.css",
                       "~/Content/css/popuo-box.css",
-                      "~/Content/css/jquery-ui1.css"
+                      "~/Content/css/jquery-ui1.css",
+                      "~/Content/css/flexslider.css"
                       ));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/Watch_js").Include(
+                        "~/Scripts/js/jquery-2.1.4.min.js",
+                        "~/Scripts/js/imagezoom.js",
+                        "~/Scripts/js/jquery.flexslider.js",
+                        "~/Scripts/js/jquery.flexisel.js",
+                        "~/Scripts/js/jminicart.js",
+                        "~/Scripts/js/easing.js",
+                        "~/Scripts/js/bootstrap.js",
+                        "~/Scripts/js/easyResponsiveTabs.js",
+                        "~/Scripts/js/jquery-ui.js",
+                        "~/Scripts/js/jquery.magnific-popup.js",
+                        "~/Scripts/js/SmoothScroll.min.js",
+                        "~/Scripts/js/move-top.js"
+                        ));
+
         }
     }
 }

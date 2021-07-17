@@ -11,120 +11,112 @@ using ADKT_WebProject.Models.Identities;
 
 namespace ADKT_WebProject.Areas.Admin.Controllers
 {
-    [Authorize]
-    public class WatchesController : Controller
+    public class ReceiptsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Admin/Watches
+        // GET: Admin/Receipts
         public ActionResult Index()
         {
-            var watches = db.Watches.Include(w => w.Brand);
-            return View(watches.ToList());
+            var receipts = db.Receipts.Include(r => r.Receipt_Detail);
+            return View(receipts.ToList());
         }
 
-        // GET: Admin/Watches/Details/5
+        // GET: Admin/Receipts/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
+            Receipt receipt = db.Receipts.Find(id);
+            if (receipt == null)
             {
                 return HttpNotFound();
             }
-            return View(watch);
+            return View(receipt);
         }
 
-        // GET: Admin/Watches/Create
+        // GET: Admin/Receipts/Create
         public ActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name");
-
-            List<SelectListItem> genders = new List<SelectListItem>
-            {
-                new SelectListItem{Text="Nam"},
-                new SelectListItem{Text="Nữ"},
-            };
-            ViewBag.gender = new SelectList(genders,"Selected","Text");
+            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id");
             return View();
         }
 
-        // POST: Admin/Watches/Create
+        // POST: Admin/Receipts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Create([Bind(Include = "Id,CustomerName,CustomerAddress,CustomerPhone,Receipt_DetailId")] Receipt receipt)
         {
             if (ModelState.IsValid)
             {
-                db.Watches.Add(watch);
+                db.Receipts.Add(receipt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            return View(receipt);
         }
 
-        // GET: Admin/Watches/Edit/5
+        // GET: Admin/Receipts/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
+            Receipt receipt = db.Receipts.Find(id);
+            if (receipt == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            return View(receipt);
         }
 
-        // POST: Admin/Watches/Edit/5
+        // POST: Admin/Receipts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Edit([Bind(Include = "Id,CustomerName,CustomerAddress,CustomerPhone,Receipt_DetailId")] Receipt receipt)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(watch).State = EntityState.Modified;
+                db.Entry(receipt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            return View(receipt);
         }
 
-        // GET: Admin/Watches/Delete/5
+        // GET: Admin/Receipts/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
+            Receipt receipt = db.Receipts.Find(id);
+            if (receipt == null)
             {
                 return HttpNotFound();
             }
-            return View(watch);
+            return View(receipt);
         }
 
-        // POST: Admin/Watches/Delete/5
+        // POST: Admin/Receipts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Watch watch = db.Watches.Find(id);
-            db.Watches.Remove(watch);
+            Receipt receipt = db.Receipts.Find(id);
+            db.Receipts.Remove(receipt);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

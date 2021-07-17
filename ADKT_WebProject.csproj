@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BrandsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReceiptsController.cs" />
     <Compile Include="Areas\Admin\Controllers\WatchesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -192,6 +193,10 @@
     <Compile Include="Migrations\202107161547301_AddColumnPriceImgPath.cs" />
     <Compile Include="Migrations\202107161547301_AddColumnPriceImgPath.Designer.cs">
       <DependentUpon>202107161547301_AddColumnPriceImgPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107171703210_changetypegender.cs" />
+    <Compile Include="Migrations\202107171703210_changetypegender.Designer.cs">
+      <DependentUpon>202107171703210_changetypegender.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,6 +351,11 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Receipts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Receipts\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -427,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107161547301_AddColumnPriceImgPath.resx">
       <DependentUpon>202107161547301_AddColumnPriceImgPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107171703210_changetypegender.resx">
+      <DependentUpon>202107171703210_changetypegender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

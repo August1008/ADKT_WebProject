@@ -19,7 +19,7 @@ namespace ADKT_WebProject.Models.Identities
         public double price { set; get; }
 
         [Required]
-        public bool gender { set; get; }
+        public string gender { set; get; }
 
         [Required]
         [StringLength(255)]

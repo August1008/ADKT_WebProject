@@ -8,10 +8,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Watch</h4>
         <hr />
@@ -35,11 +35,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.gender)
-                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-                </div>
+                <span class="">Male  </span>@Html.RadioButtonFor(model => model.gender, "Male")
+                <span style="margin:20px;"></span>
+                <span>Female  </span>@Html.RadioButtonFor(model => model.gender, "Female")
+                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+
             </div>
+
         </div>
 
         <div class="form-group">
@@ -67,7 +69,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BrandId, "BrandId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BrandId, "Brand", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
@@ -88,4 +90,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+   
 }

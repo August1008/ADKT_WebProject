@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Dynamic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ADKT_WebProject.Models;
@@ -17,15 +18,22 @@ namespace ADKT_WebProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Watches
-        public ActionResult Index()
+        
+        public ActionResult Index(string searchString)
         {
             var watches = db.Watches.Include(w => w.Brand);
             var brands = db.Brands;
             LayoutViewModel viewModel = new LayoutViewModel();
             viewModel.Brands = brands.ToList();
-            viewModel.Watches = watches.ToList();
+            viewModel.Watches = watches.Where(x=>x.name.Contains(searchString) ||searchString ==null).ToList();
             return View(viewModel);
         }
+
+        //public async Task<ActionResult> Searching(string searchString)
+        //{
+
+        //    return RedirectToAction("Index");
+        //}
 
         // GET: Watches/Details/5
         public ActionResult Details(string id)

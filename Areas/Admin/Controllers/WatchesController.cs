@@ -17,6 +17,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/Watches
+        [HttpGet]
         public ActionResult Index()
         {
             var watches = db.Watches.Include(w => w.Brand);

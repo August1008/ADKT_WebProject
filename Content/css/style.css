@@ -5,7 +5,25 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 
+.page-head{
+    width:80%;
+    margin:auto;
+}
+.navbar-default {
+    background: none;
+    border: none;
+    min-height: inherit;
+    margin: 0;
+    min-height: 80px;
+    padding-top: 15px;
+}
 
+a.nav-stylehead {
+    letter-spacing: 1px;
+    color: #000;
+    font-size: 25px;
+    font-family: -webkit-body;
+}
 h3.agileits-sear-head {
     margin-bottom: 20px;
     font-size: 25px;

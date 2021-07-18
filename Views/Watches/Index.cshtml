@@ -159,48 +159,15 @@
             <!-- //discounts -->
             <!-- cuisine -->
             <div class="left-side">
-                <h3 class="agileits-sear-head">Cuisine</h3>
+                <h3 class="agileits-sear-head">Brand</h3>
                 <ul>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">South American</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">French</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Greek</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Chinese</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Japanese</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Italian</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Mexican</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Thai</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span">Indian</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" class="checked">
-                        <span class="span"> Spanish </span>
-                    </li>
+                    @foreach (var item in Model.Brands)
+                    {
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">@item.name</span>
+                        </li>
+                    }
                 </ul>
             </div>
             <!-- //cuisine -->

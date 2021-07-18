@@ -57,7 +57,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Create([Bind(Include = "Id,name,price,gender,glass,waterproof,strap,BrandId")] Watch watch)
         {
             if (ModelState.IsValid)
             {

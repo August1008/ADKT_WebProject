@@ -11,6 +11,7 @@ using ADKT_WebProject.Models.Identities;
 
 namespace ADKT_WebProject.Areas.Admin.Controllers
 {
+    [Authorize]
     public class ReceiptsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

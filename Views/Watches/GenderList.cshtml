@@ -1,10 +1,10 @@
-﻿
-@model ADKT_WebProject.Models.LayoutViewModel
-
+﻿@model ADKT_WebProject.Models.LayoutViewModel
 @{
-    ViewBag.Title = "ADKT.com";
+    ViewBag.Title = "Danh mục đồng hồ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 
 <div class="ban-top">
@@ -60,7 +60,7 @@
                             </li>
 
                             <li class="">
-                                @Html.ActionLink("Male", "GenderList", new { gender = "Male", Controller = "Watches" }, new {@class="nav-stylehead"})
+                                @Html.ActionLink("Male", "GenderList", new { gender = "Male", Controller = "Watches" }, new { @class = "nav-stylehead" })
                             </li>
                             <li class="">
                                 @Html.ActionLink("Female", "GenderList", new { gender = "Female", Controller = "Watches" }, new { @class = "nav-stylehead" })
@@ -88,7 +88,7 @@
 
         <!-- tittle heading -->
         <h3 class="tittle-w3l">
-            Our Top Products
+            @ViewBag.gender's Watch
             <span class="heading-style">
                 <i></i>
                 <i></i>
@@ -207,16 +207,10 @@
 
         </div>
         <!-- //product left -->
-
-
-
-
-
         <!-- product right -->
         <div class="agileinfo-ads-display col-md-9">
             <div class="wrapper">
                 <div class="product-sec1">
-                    <h3 class="heading-tittle">Nuts</h3>
                     @foreach (var item in Model.Watches)
                     {
                         <div class="col-md-4 product-men">
@@ -267,4 +261,3 @@
         <!-- //product right -->
     </div>
 </div>
-

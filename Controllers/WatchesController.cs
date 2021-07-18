@@ -35,6 +35,7 @@ namespace ADKT_WebProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Watch watch = db.Watches.Find(id);
+            watch.Brand = db.Brands.Find(watch.BrandId);
             if (watch == null)
             {
                 return HttpNotFound();
@@ -133,6 +134,16 @@ namespace ADKT_WebProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult GenderList(string gender)
+        {
+
+            LayoutViewModel viewModel = new LayoutViewModel();
+            viewModel.Brands = db.Brands.ToList();
+            viewModel.Watches = db.Watches.Where(w => w.gender == gender).ToList();
+            ViewBag.gender = gender;
+            return View(viewModel);
         }
     }
 }

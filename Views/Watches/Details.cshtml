@@ -44,8 +44,9 @@
             </div>
         </div>
         <div class="col-md-7 single-right-left simpleCart_shelfItem">
-            <h3>Zeeba Premium Basmati Rice - 5 KG</h3>
-            <div class="rating1">
+            <h3>Product's ID: @Model.name</h3>
+            @*
+                <div class="rating1">
                 <span class="starRating">
                     <input id="rating5" type="radio" name="rating" value="5">
                     <label for="rating5">5</label>
@@ -59,8 +60,9 @@
                     <label for="rating1">1</label>
                 </span>
             </div>
+                *@
             <p>
-                <span class="item_price">$950.00</span>
+                <span class="price">@Model.price</span>
                 <del>$1300.00</del>
                 <label>Free delivery</label>
             </p>
@@ -83,21 +85,24 @@
             </div>
             <div class="product-single-w3l">
                 <p>
-                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>This is a
-                    <label>Vegetarian</label> product.
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                    <label>More detail about product</label>
                 </p>
-                <ul>
+                <ul class="thong-tin-san-pham">
                     <li>
-                        Best for Biryani and Pulao.
+                        <label>Brand:</label> @Model.Brand.name
                     </li>
                     <li>
-                        After cooking, Zeeba Basmati rice grains attain an extra ordinary length of upto 2.4 cm/~1 inch.
+                        <label>Gender:</label> @Model.gender
                     </li>
                     <li>
-                        Zeeba Basmati rice adheres to the highest food afety standards as your health is paramount to us.
+                        <label>Waterproof:</label> @Model.waterproof ATM
                     </li>
                     <li>
-                        Contains only the best and purest grade of basmati rice grain of Export quality.
+                        <label> Glass:</label> @Model.glass
+                    </li>
+                    <li>
+                        <label>Strap:</label> @Model.strap
                     </li>
                 </ul>
                 <p>

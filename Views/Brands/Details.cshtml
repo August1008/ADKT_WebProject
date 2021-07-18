@@ -24,7 +24,7 @@
                         <ul class="nav navbar-nav menu__list">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Thương hiệu
+                                    Brands
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu multi-column columns-3">
@@ -57,10 +57,10 @@
                             </li>
 
                             <li class="">
-                                <a class="nav-stylehead" href="about.html">Nam</a>
+                                @Html.ActionLink("Male", "GenderList", new { gender = "Male", Controller = "Watches" }, new { @class = "nav-stylehead" })
                             </li>
                             <li class="">
-                                <a class="nav-stylehead" href="about.html">Nữ</a>
+                                @Html.ActionLink("Female", "GenderList", new { gender = "Female", Controller = "Watches" }, new { @class = "nav-stylehead" })
                             </li>
                             <li class="">
                                 <a class="nav-stylehead" href="about.html">About Us</a>
@@ -120,82 +120,17 @@
                         </li>
                     </ul>
                 </div>
-                <!-- //food preference -->
-                <!-- discounts -->
-                <div class="left-side">
-                    <h3 class="agileits-sear-head">Discount</h3>
-                    <ul>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">5% or More</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">10% or More</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">20% or More</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">30% or More</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">50% or More</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">60% or More</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- //discounts -->
+                
                 <!-- cuisine -->
                 <div class="left-side">
-                    <h3 class="agileits-sear-head">Cuisine</h3>
+                    <h3 class="agileits-sear-head">Brand</h3>
                     <ul>
+                        @foreach(var item in Model.Brands){
                         <li>
                             <input type="checkbox" class="checked">
-                            <span class="span">South American</span>
+                            <span class="span">@item.name</span>
                         </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">French</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Greek</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Chinese</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Japanese</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Italian</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Mexican</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Thai</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span">Indian</span>
-                        </li>
-                        <li>
-                            <input type="checkbox" class="checked">
-                            <span class="span"> Spanish </span>
-                        </li>
+                        }
                     </ul>
                 </div>
                 <!-- //cuisine -->
@@ -211,11 +146,11 @@
                             <div class="col-md-4 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <img src="images/6_FAC00005W0-1-399x399.jpg" alt="">
+                                        <img src="~/images/6_FAC00005W0-1-399x399.jpg" alt="">
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
-                                                @Html.ActionLink("Quich View", "Details", new { id = item.Id }, new { @class = "link-product-add-cart" })
+                                                @Html.ActionLink("Quich View", "Details", new {Controller="Watches", id = item.Id }, new { @class = "link-product-add-cart" })
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>

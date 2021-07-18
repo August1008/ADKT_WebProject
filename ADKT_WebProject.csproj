@@ -172,6 +172,7 @@
     <Compile Include="Areas\Admin\Controllers\ReceiptsController.cs" />
     <Compile Include="Areas\Admin\Controllers\WatchesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\Identities\Receipt_Detail.cs" />
     <Compile Include="Models\Identities\Watch.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -407,6 +409,11 @@
     <Content Include="Views\Watches\Edit.cshtml" />
     <Content Include="Views\Watches\Index.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
+    <Content Include="Views\Brands\Create.cshtml" />
+    <Content Include="Views\Brands\Delete.cshtml" />
+    <Content Include="Views\Brands\Details.cshtml" />
+    <Content Include="Views\Brands\Edit.cshtml" />
+    <Content Include="Views\Brands\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

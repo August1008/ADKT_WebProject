@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,116 +11,111 @@ using ADKT_WebProject.Models.Identities;
 
 namespace ADKT_WebProject.Controllers
 {
-    public class WatchesController : Controller
+    public class BrandsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Watches
+        // GET: Brands
         public ActionResult Index()
         {
-            var watches = db.Watches.Include(w => w.Brand);
-            var brands = db.Brands;
+            return View(db.Brands.ToList());
+        }
+
+        // GET: Brands/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Brand brand = db.Brands.Find(id);
+            if (brand == null)
+            {
+                return HttpNotFound();
+            }
             LayoutViewModel viewModel = new LayoutViewModel();
-            viewModel.Brands = brands.ToList();
-            viewModel.Watches = watches.ToList();
+            viewModel.Watches= db.Watches.Where(c=>c.BrandId == id).ToList();
+            viewModel.Brands = db.Brands;
+            ViewBag.brand = brand;
             return View(viewModel);
         }
 
-        // GET: Watches/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
-            {
-                return HttpNotFound();
-            }
-            return View(watch);
-        }
-
-        // GET: Watches/Create
+        // GET: Brands/Create
         public ActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name");
             return View();
         }
 
-        // POST: Watches/Create
+        // POST: Brands/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Create([Bind(Include = "Id,name")] Brand brand)
         {
             if (ModelState.IsValid)
             {
-                db.Watches.Add(watch);
+                db.Brands.Add(brand);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            return View(brand);
         }
 
-        // GET: Watches/Edit/5
-        public ActionResult Edit(string id)
+        // GET: Brands/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
+            Brand brand = db.Brands.Find(id);
+            if (brand == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            return View(brand);
         }
 
-        // POST: Watches/Edit/5
+        // POST: Brands/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Edit([Bind(Include = "Id,name")] Brand brand)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(watch).State = EntityState.Modified;
+                db.Entry(brand).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BrandId = new SelectList(db.Brands, "Id", "name", watch.BrandId);
-            return View(watch);
+            return View(brand);
         }
 
-        // GET: Watches/Delete/5
-        public ActionResult Delete(string id)
+        // GET: Brands/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
-            if (watch == null)
+            Brand brand = db.Brands.Find(id);
+            if (brand == null)
             {
                 return HttpNotFound();
             }
-            return View(watch);
+            return View(brand);
         }
 
-        // POST: Watches/Delete/5
+        // POST: Brands/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Watch watch = db.Watches.Find(id);
-            db.Watches.Remove(watch);
+            Brand brand = db.Brands.Find(id);
+            db.Brands.Remove(brand);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

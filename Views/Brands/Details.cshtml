@@ -1,0 +1,262 @@
+﻿@model ADKT_WebProject.Models.LayoutViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ban-top">
+    <div class="container">
+        <div class="top_nav">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Thương hiệu
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="agile_inner_drop_nav_info">
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                @foreach (var item in Model.Brands)
+                                                {
+                                                    <li>
+                                                        @Html.ActionLink(item.name, "Details", new { Controller = "Brands", id = item.Id })
+                                                    </li>
+                                                }
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4 multi-gd-img">
+                                            <ul class="multi-column-dropdown">
+                                                @foreach (var item in Model.Brands)
+                                                {
+                                                    <li>
+                                                        @item.name
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+
+                            <li class="">
+                                <a class="nav-stylehead" href="about.html">Nam</a>
+                            </li>
+                            <li class="">
+                                <a class="nav-stylehead" href="about.html">Nữ</a>
+                            </li>
+                            <li class="">
+                                <a class="nav-stylehead" href="about.html">About Us</a>
+                            </li>
+
+
+                            <li>
+                                <a class="" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div>
+
+    <hr />
+
+    <div class="ads-grid">
+        <div class="container">
+            <h3 class="tittle-w3l">
+                @ViewBag.brand.name
+                <span class="heading-style">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </h3>
+            <div class="side-bar col-md-3">
+
+                <!-- price range -->
+                <div class="range">
+                    <h3 class="agileits-sear-head">Price range</h3>
+                    <ul class="dropdown-menu6">
+                        <li>
+
+                            <div id="slider-range"></div>
+                            <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+                        </li>
+                    </ul>
+                </div>
+                <!-- //price range -->
+                <!-- food preference -->
+                <div class="left-side">
+                    <h3 class="agileits-sear-head">Giới tính</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Nam</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Nữ</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //food preference -->
+                <!-- discounts -->
+                <div class="left-side">
+                    <h3 class="agileits-sear-head">Discount</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">5% or More</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">10% or More</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">20% or More</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">30% or More</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">50% or More</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">60% or More</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //discounts -->
+                <!-- cuisine -->
+                <div class="left-side">
+                    <h3 class="agileits-sear-head">Cuisine</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">South American</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">French</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Greek</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Chinese</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Japanese</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Italian</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Mexican</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Thai</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Indian</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span"> Spanish </span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //cuisine -->
+
+            </div>
+            <!-- //product left -->
+            <!-- product right -->
+            <div class="agileinfo-ads-display col-md-9">
+                <div class="wrapper">
+                    <div class="product-sec1">
+                        @foreach (var item in Model.Watches)
+                        {
+                            <div class="col-md-4 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <img src="images/6_FAC00005W0-1-399x399.jpg" alt="">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
+                                                @Html.ActionLink("Quich View", "Details", new { id = item.Id }, new { @class = "link-product-add-cart" })
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4>
+                                            <a href="single.html">@Html.DisplayFor(modelItem => item.name) </a>
+                                        </h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price">@Html.DisplayFor(modelItem => item.price) </span>
+                                            <del>$280.00</del>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                            <form action="#" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                    <input type="hidden" name="add" value="1" />
+                                                    <input type="hidden" name="business" value=" " />
+                                                    <input type="hidden" name="item_name" value=@item.name />
+                                                    <input type="hidden" name="amount" value=@item.price />
+                                                    <input type="hidden" name="discount_amount" value="1.00" />
+                                                    <input type="hidden" name="currency_code" value="USD" />
+                                                    <input type="hidden" name="return" value=" " />
+                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                </fieldset>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- //product right -->
+        </div>
+    </div>
+
+
+</div>
+

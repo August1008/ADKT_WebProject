@@ -19,7 +19,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // GET: Admin/Receipts
         public ActionResult Index()
         {
-            var receipts = db.Receipts.Include(r => r.Receipt_Detail);
+            var receipts = db.Receipts;
             return View(receipts.ToList());
         }
 
@@ -59,7 +59,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            //ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
             return View(receipt);
         }
 
@@ -75,7 +75,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            //ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
             return View(receipt);
         }
 
@@ -92,7 +92,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+            //ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
             return View(receipt);
         }
 

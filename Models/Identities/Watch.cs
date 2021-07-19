@@ -18,6 +18,8 @@ namespace ADKT_WebProject.Models.Identities
         [Required]
         public double price { set; get; }
 
+        public int number { set; get; }
+
         [Required]
         public string gender { set; get; }
 
@@ -35,5 +37,7 @@ namespace ADKT_WebProject.Models.Identities
         public int BrandId { set; get; }
 
         public string Img_Path { set; get; }
+        public string Img_Path1 { set; get; }
+        public string Img_Path2 { set; get; }
     }
 }

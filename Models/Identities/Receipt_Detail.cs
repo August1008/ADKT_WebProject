@@ -13,5 +13,8 @@ namespace ADKT_WebProject.Models.Identities
 
         public Watch Watch { set; get; }
         public int WatchId { set; get; }
+
+        public Receipt Receipt { set; get; }
+        public int ReceiptId { set; get; }
     }
 }

@@ -173,6 +173,7 @@
     <Compile Include="Areas\Admin\Controllers\WatchesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
@@ -199,8 +200,25 @@
     <Compile Include="Migrations\202107171703210_changetypegender.Designer.cs">
       <DependentUpon>202107171703210_changetypegender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107190133546_FixAttributeOfReceiptAndDetail.cs" />
+    <Compile Include="Migrations\202107190133546_FixAttributeOfReceiptAndDetail.Designer.cs">
+      <DependentUpon>202107190133546_FixAttributeOfReceiptAndDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107190808242_AddColumnToWatch.cs" />
+    <Compile Include="Migrations\202107190808242_AddColumnToWatch.Designer.cs">
+      <DependentUpon>202107190808242_AddColumnToWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107191525503_ChangeReceiptAtributes.cs" />
+    <Compile Include="Migrations\202107191525503_ChangeReceiptAtributes.Designer.cs">
+      <DependentUpon>202107191525503_ChangeReceiptAtributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107191532511_AddNameAddresstoUser.cs" />
+    <Compile Include="Migrations\202107191532511_AddNameAddresstoUser.Designer.cs">
+      <DependentUpon>202107191532511_AddNameAddresstoUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Identities\Brand.cs" />
     <Compile Include="Models\Identities\Receipt.cs" />
     <Compile Include="Models\Identities\Receipt_Detail.cs" />
@@ -415,6 +433,7 @@
     <Content Include="Views\Brands\Edit.cshtml" />
     <Content Include="Views\Brands\Index.cshtml" />
     <Content Include="Views\Watches\GenderList.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -448,6 +467,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107171703210_changetypegender.resx">
       <DependentUpon>202107171703210_changetypegender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107190133546_FixAttributeOfReceiptAndDetail.resx">
+      <DependentUpon>202107190133546_FixAttributeOfReceiptAndDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107190808242_AddColumnToWatch.resx">
+      <DependentUpon>202107190808242_AddColumnToWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107191525503_ChangeReceiptAtributes.resx">
+      <DependentUpon>202107191525503_ChangeReceiptAtributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107191532511_AddNameAddresstoUser.resx">
+      <DependentUpon>202107191532511_AddNameAddresstoUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

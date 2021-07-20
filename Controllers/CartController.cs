@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ADKT_WebProject.Models;
 using ADKT_WebProject.Models.Identities;
+using Microsoft.AspNet.Identity;
 
 namespace ADKT_WebProject.Controllers
 {
@@ -62,11 +63,35 @@ namespace ADKT_WebProject.Controllers
         }
 
 
-        //public ActionResult CreateReceipt()
-        //{
-        //    List<CartItem> ItemList = GetCart();
+        public ActionResult PlaceOrder()
+        {
+            List<CartItem> ItemList = GetCart();
+            if (ItemList == null)
+            {
+                return RedirectToAction("Index", "Watches");
+            }
 
-        //}
+            // add new receipt
+            Receipt newReceipt = new Receipt();
+            newReceipt.CustomerId = User.Identity.GetUserId();
+            newReceipt.date = DateTime.Now;
+            db.Receipts.Add(newReceipt);
+            db.SaveChanges();
+
+            // add new receipt_details
+            foreach (var item in ItemList)
+            {
+                Receipt_Detail receipt_Detail = new Receipt_Detail();
+                receipt_Detail.ReceiptId = newReceipt.Id;
+                receipt_Detail.WatchId = item.ItemId;
+                receipt_Detail.numOfItem = item.ItemNum;
+                db.receipt_Details.Add(receipt_Detail);
+                
+            }
+            db.SaveChanges();
+            Session["CartItem"] = null;
+            return RedirectToAction("Index", "Watches");
+        }
     }
 
 

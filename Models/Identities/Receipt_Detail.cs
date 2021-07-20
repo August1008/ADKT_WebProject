@@ -12,7 +12,9 @@ namespace ADKT_WebProject.Models.Identities
         public int Id { set; get; }
 
         public Watch Watch { set; get; }
-        public int WatchId { set; get; }
+        public string WatchId { set; get; }
+
+        public int numOfItem { set; get; }
 
         public Receipt Receipt { set; get; }
         public int ReceiptId { set; get; }

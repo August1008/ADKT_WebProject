@@ -46,4 +46,12 @@
             }
         </tbody>
     </table>
+
+    <div class="divDatHang">
+        @using(Html.BeginForm("PlaceOrder","Cart"))
+            {
+                <input type="submit" value="Place Order" class="btn btn-secondary btn-lg"/>
+                @Html.ActionLink("Buy more", "Index", "Watches", new {@class="btn btn-info"})
+            }
+    </div>
 </div>

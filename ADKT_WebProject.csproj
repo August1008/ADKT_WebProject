@@ -216,6 +216,18 @@
     <Compile Include="Migrations\202107191532511_AddNameAddresstoUser.Designer.cs">
       <DependentUpon>202107191532511_AddNameAddresstoUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107200257368_AddDateToReceipt.cs" />
+    <Compile Include="Migrations\202107200257368_AddDateToReceipt.Designer.cs">
+      <DependentUpon>202107200257368_AddDateToReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107200304514_AddNumOfItemtoReceiptDetail.cs" />
+    <Compile Include="Migrations\202107200304514_AddNumOfItemtoReceiptDetail.Designer.cs">
+      <DependentUpon>202107200304514_AddNumOfItemtoReceiptDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107200307144_ChangeWatchIdToStringInReceiptDetail.cs" />
+    <Compile Include="Migrations\202107200307144_ChangeWatchIdToStringInReceiptDetail.Designer.cs">
+      <DependentUpon>202107200307144_ChangeWatchIdToStringInReceiptDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -479,6 +491,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107191532511_AddNameAddresstoUser.resx">
       <DependentUpon>202107191532511_AddNameAddresstoUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107200257368_AddDateToReceipt.resx">
+      <DependentUpon>202107200257368_AddDateToReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107200304514_AddNumOfItemtoReceiptDetail.resx">
+      <DependentUpon>202107200304514_AddNumOfItemtoReceiptDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107200307144_ChangeWatchIdToStringInReceiptDetail.resx">
+      <DependentUpon>202107200307144_ChangeWatchIdToStringInReceiptDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

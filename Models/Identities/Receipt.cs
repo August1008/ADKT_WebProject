@@ -15,5 +15,7 @@ namespace ADKT_WebProject.Models.Identities
         public ApplicationUser Customer { set; get; }
         public string CustomerId { set; get; }
 
+        public DateTime date { set; get; }
+
     }
 }

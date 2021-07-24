@@ -44,12 +44,12 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         {
             ViewBag.BrandId = new SelectList(db.Brands, "Id", "name");
 
-            List<SelectListItem> genders = new List<SelectListItem>
-            {
-                new SelectListItem{Text="Nam"},
-                new SelectListItem{Text="Nữ"},
-            };
-            ViewBag.gender = new SelectList(genders,"Selected","Text");
+            //List<SelectListItem> genders = new List<SelectListItem>
+            //{
+            //    new SelectListItem{Text="Nam"},
+            //    new SelectListItem{Text="Nữ"},
+            //};
+            //ViewBag.gender = new SelectList(genders,"Selected","Text");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name,price,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Create(Watch watch)
         {
             if (ModelState.IsValid)
             {

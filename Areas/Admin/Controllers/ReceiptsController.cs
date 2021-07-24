@@ -19,7 +19,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // GET: Admin/Receipts
         public ActionResult Index()
         {
-            var receipts = db.Receipts;
+            var receipts = db.Receipts.Include(r =>r.Customer);
             return View(receipts.ToList());
         }
 

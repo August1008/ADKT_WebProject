@@ -17,6 +17,7 @@ namespace ADKT_WebProject.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -75,6 +76,17 @@ namespace ADKT_WebProject.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
+            if (returnUrl == "/admin")
+            {
+                ApplicationUser user = db.Users.SingleOrDefault(u => u.Email == model.Email);
+                if(user.isAdmin == false)
+                {
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ViewBag.ReturnUrl = returnUrl;
+                    return View();
+                }
+
+            }
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {

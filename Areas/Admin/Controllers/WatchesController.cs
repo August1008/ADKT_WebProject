@@ -31,7 +31,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
+            Watch watch = db.Watches.Include(w => w.Brand).SingleOrDefault(w => w.Id == id);
             if (watch == null)
             {
                 return HttpNotFound();
@@ -92,7 +92,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name,gender,glass,waterproof,strap,BrandId")] Watch watch)
+        public ActionResult Edit(Watch watch)
         {
             if (ModelState.IsValid)
             {

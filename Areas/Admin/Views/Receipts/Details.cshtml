@@ -5,33 +5,125 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<h2 style="text-align:center">Receipt</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
 
-<div>
-    <h4>Receipt</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomerId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Customer.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CustomerId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.PhoneNumber)
+            </dt>
 
-        
+            <dd>
+                @Html.DisplayFor(model => model.Customer.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer.Address)
+            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dd>
+                @Html.DisplayFor(model => model.Customer.Address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.date)
+            </dd>
+            <div class="form-group">
+                @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @if (Model.status == 0)
+                    {
+                        <span class="">Chưa giao hàng</span>@Html.RadioButtonFor(model => model.status, 0, true)
+                    }
+                    else
+                    {
+                        <span class="">Chưa giao hàng</span>@Html.RadioButtonFor(model => model.status, 0, false)
+                    }
+                    <span style="margin:20px;"></span>
+                    @if (Model.status == 1)
+                    {
+                        <span>Đã giao hàng</span>@Html.RadioButtonFor(model => model.status, 1, true)
+                    }
+                    else
+                    {
+                        <span>Đã giao hàng</span>@Html.RadioButtonFor(model => model.status, 1, false)
+                    }
+                    <span style="margin:20px;"></span>
+                    @if (Model.status == 2)
+                    {
+                        <span>Đã thanh toán</span>@Html.RadioButtonFor(model => model.status, 2, true)
+                    }
+                    else
+                    {
+                        <span>Đã thanh toán</span>@Html.RadioButtonFor(model => model.status, 2, false)
+                    }
+                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </dl>
+    </div>
+}
+<table class="table">
+    <thead class="thead-dark">
+        <tr class="row">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.receiptdetails)
+        {
+            <tr class="row">
+                <td>
+                    @item.Watch.Id
+                </td>
+                <td>
+                    @item.Watch.name
+                </td>
+                <td>
+                    <img src="~/images/@item.Watch.Img_Path" style="width:80px;height:80px;" />
+                </td>
+                <td>
+                    @item.Watch.price
+                </td>
+                <td>
+                    @item.Watch.name
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

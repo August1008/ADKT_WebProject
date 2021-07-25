@@ -24,37 +24,30 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         }
 
         // GET: Admin/Receipts/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Receipt receipt = db.Receipts.Find(id);
+            Receipt receipt = db.Receipts.Include(r => r.Customer).SingleOrDefault(r => r.Id == id);
             if (receipt == null)
             {
                 return HttpNotFound();
             }
+            var receiptDetails = db.receipt_Details.Include(rd => rd.Watch).Where(rd => rd.ReceiptId == receipt.Id);
+            ViewBag.receiptdetails = receiptDetails.ToList();
             return View(receipt);
         }
 
-        // GET: Admin/Receipts/Create
-        public ActionResult Create()
-        {
-            ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id");
-            return View();
-        }
-
-        // POST: Admin/Receipts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CustomerName,CustomerAddress,CustomerPhone,Receipt_DetailId")] Receipt receipt)
+        public ActionResult Details(Receipt receipt)
         {
             if (ModelState.IsValid)
             {
-                db.Receipts.Add(receipt);
+                var tempReceipt = db.Receipts.Find(receipt.Id);
+                tempReceipt.status = receipt.status;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,9 +55,33 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             //ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
             return View(receipt);
         }
+        // GET: Admin/Receipts/Create
+        //public ActionResult Create()
+        //{
+        //    ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id");
+        //    return View();
+        //}
+
+        // POST: Admin/Receipts/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(Receipt receipt)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(receipt).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    //ViewBag.Receipt_DetailId = new SelectList(db.receipt_Details, "Id", "Id", receipt.Receipt_DetailId);
+        //    return View(receipt);
+        //}
 
         // GET: Admin/Receipts/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -84,7 +101,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CustomerName,CustomerAddress,CustomerPhone,Receipt_DetailId")] Receipt receipt)
+        public ActionResult Edit(Receipt receipt)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +114,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         }
 
         // GET: Admin/Receipts/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -114,7 +131,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // POST: Admin/Receipts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int? id)
         {
             Receipt receipt = db.Receipts.Find(id);
             db.Receipts.Remove(receipt);

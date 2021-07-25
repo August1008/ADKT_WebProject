@@ -232,6 +232,10 @@
     <Compile Include="Migrations\202107241357316_AddColumnisAdminToUser.Designer.cs">
       <DependentUpon>202107241357316_AddColumnisAdminToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107251511414_AddStatusOrdertoReceipt.cs" />
+    <Compile Include="Migrations\202107251511414_AddStatusOrdertoReceipt.Designer.cs">
+      <DependentUpon>202107251511414_AddStatusOrdertoReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CartItem.cs" />
@@ -507,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107241357316_AddColumnisAdminToUser.resx">
       <DependentUpon>202107241357316_AddColumnisAdminToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107251511414_AddStatusOrdertoReceipt.resx">
+      <DependentUpon>202107251511414_AddStatusOrdertoReceipt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

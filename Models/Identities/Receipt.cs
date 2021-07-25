@@ -17,5 +17,7 @@ namespace ADKT_WebProject.Models.Identities
 
         public DateTime date { set; get; }
 
+        public int status { set; get; }
+
     }
 }

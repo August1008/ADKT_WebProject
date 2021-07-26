@@ -48,6 +48,12 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             {
                 var tempReceipt = db.Receipts.Find(receipt.Id);
                 tempReceipt.status = receipt.status;
+                var receiptdetails = db.receipt_Details.Where(rd => rd.ReceiptId == receipt.Id).ToList();
+                foreach(var item in receiptdetails)
+                {
+                    Watch tempWatch = db.Watches.Find(item.WatchId);
+                    tempWatch.number -= item.numOfItem;
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

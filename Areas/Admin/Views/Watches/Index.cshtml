@@ -25,16 +25,7 @@
             @Html.DisplayNameFor(model => model.price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.glass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.waterproof)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.strap)
+            Remaining
         </th>
         <th></th>
     </tr>
@@ -54,16 +45,7 @@
         @Html.DisplayFor(modeItem => item.price)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.gender)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.glass)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.waterproof)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.strap)
+        @Html.DisplayFor(modeItem => item.number)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

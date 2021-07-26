@@ -47,17 +47,17 @@ namespace ADKT_WebProject.Controllers
             {
                 if(watch.number < item.ItemNum)
                 {
-                    return View("ThongBao");
+                    return View("OutOfStock");
                 }
                 item.ItemNum++;
                 return Redirect(strUrl);
             }
-            CartItem newItem = new CartItem(ItemId);
-            //if (watch.number < item.ItemNum)
-            //{
-            //    return View("ThongBao");
-            //}
-            
+            CartItem newItem = new CartItem(ItemId,1);
+            if (watch.number < newItem.ItemNum)
+            {
+                return View("OutOfStock");
+            }
+
             cartItems.Add(newItem);
             return Redirect(strUrl);
         }

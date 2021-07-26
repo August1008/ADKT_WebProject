@@ -454,6 +454,7 @@
     <Content Include="Views\Brands\Index.cshtml" />
     <Content Include="Views\Watches\GenderList.cshtml" />
     <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Cart\OutOfStock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

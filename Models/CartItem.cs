@@ -45,5 +45,10 @@ namespace ADKT_WebProject.Models
                 Payment = ItemPrice * ItemNum;
             }
         }
+
+        public double GetPayMent()
+        {
+            return ItemNum * ItemPrice;
+        }
     }
 }

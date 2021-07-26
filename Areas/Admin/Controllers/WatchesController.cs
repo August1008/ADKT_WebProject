@@ -111,7 +111,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Watch watch = db.Watches.Find(id);
+            Watch watch = db.Watches.Include(w => w.Brand).FirstOrDefault(w => w.Id == id);
             if (watch == null)
             {
                 return HttpNotFound();

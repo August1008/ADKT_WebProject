@@ -120,11 +120,13 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Receipt receipt = db.Receipts.Find(id);
+            Receipt receipt = db.Receipts.Include(r => r.Customer).SingleOrDefault(r => r.Id == id);
             if (receipt == null)
             {
                 return HttpNotFound();
             }
+            var receiptDetails = db.receipt_Details.Include(rd => rd.Watch).Where(rd => rd.ReceiptId == receipt.Id);
+            ViewBag.receiptdetails = receiptDetails.ToList();
             return View(receipt);
         }
 

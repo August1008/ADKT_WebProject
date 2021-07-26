@@ -50,33 +50,33 @@
                 @Html.DisplayFor(model => model.date)
             </dd>
             <div class="form-group">
-                @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+               
                 <div class="col-md-10">
                     @if (Model.status == 0)
                     {
-                        <span class="">Chưa giao hàng</span>@Html.RadioButtonFor(model => model.status, 0, true)
+                        <span class="">Not deliver</span>@Html.RadioButtonFor(model => model.status, 0, true)
                     }
                     else
                     {
-                        <span class="">Chưa giao hàng</span>@Html.RadioButtonFor(model => model.status, 0, false)
+                        <span class="">Not deliver</span>@Html.RadioButtonFor(model => model.status, 0, false)
                     }
                     <span style="margin:20px;"></span>
                     @if (Model.status == 1)
                     {
-                        <span>Đã giao hàng</span>@Html.RadioButtonFor(model => model.status, 1, true)
+                        <span>Delivered</span>@Html.RadioButtonFor(model => model.status, 1, true)
                     }
                     else
                     {
-                        <span>Đã giao hàng</span>@Html.RadioButtonFor(model => model.status, 1, false)
+                        <span>Delivered</span>@Html.RadioButtonFor(model => model.status, 1, false)
                     }
                     <span style="margin:20px;"></span>
                     @if (Model.status == 2)
                     {
-                        <span>Đã thanh toán</span>@Html.RadioButtonFor(model => model.status, 2, true)
+                        <span>Paid</span>@Html.RadioButtonFor(model => model.status, 2, true)
                     }
                     else
                     {
-                        <span>Đã thanh toán</span>@Html.RadioButtonFor(model => model.status, 2, false)
+                        <span>Paid</span>@Html.RadioButtonFor(model => model.status, 2, false)
                     }
                     @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
                     <div class="col-md-offset-2 col-md-10">
@@ -94,7 +94,7 @@
             <th>Name</th>
             <th>Image</th>
             <th>Price</th>
-            <th>Total</th>
+            <th>Amount</th>
             <th></th>
         </tr>
     </thead>
@@ -115,7 +115,7 @@
                     @item.Watch.price
                 </td>
                 <td>
-                    @item.Watch.name
+                    @item.numOfItem
                 </td>
                 <td>
                 </td>

@@ -174,11 +174,10 @@
                                 </div>
                                 <div class="item-info-product ">
                                     <h4>
-                                        <a href="single.html">@Html.DisplayFor(modelItem => item.name) </a>
+                                        <a href="@Url.Action("Details",new{id=item.Id})">@Html.DisplayFor(modelItem => item.name) </a>
                                     </h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">@Html.DisplayFor(modelItem => item.price) </span>
-                                        <del>$280.00</del>
+                                        <span class="item_price">@Html.DisplayFor(modelItem => item.price)$</span>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                                         

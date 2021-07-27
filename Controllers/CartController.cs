@@ -19,6 +19,12 @@ namespace ADKT_WebProject.Controllers
         public ActionResult CheckOut()
         {
             List<CartItem> cartItems = GetCart();
+            double payment = 0;
+            foreach (var cartItem in cartItems)
+            {
+                payment += cartItem.Payment;
+            }
+            ViewBag.totalPayment = payment;
             return View(cartItems);
         }
 
@@ -50,6 +56,7 @@ namespace ADKT_WebProject.Controllers
                     return View("OutOfStock");
                 }
                 item.ItemNum++;
+                item.Payment = item.GetPayMent();
                 return Redirect(strUrl);
             }
             CartItem newItem = new CartItem(ItemId,1);
@@ -59,6 +66,7 @@ namespace ADKT_WebProject.Controllers
             }
 
             cartItems.Add(newItem);
+            
             return Redirect(strUrl);
         }
 
@@ -91,6 +99,13 @@ namespace ADKT_WebProject.Controllers
             db.SaveChanges();
             Session["CartItem"] = null;
             return RedirectToAction("Index", "Watches");
+        }
+
+        public ActionResult DeleteOrder()
+        {
+            Session["CartItem"] = null;
+            return RedirectToAction("CheckOut");
+
         }
     }
 

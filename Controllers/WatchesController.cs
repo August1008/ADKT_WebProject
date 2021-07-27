@@ -21,7 +21,7 @@ namespace ADKT_WebProject.Controllers
         
         public ActionResult Index(string searchString)
         {
-            var watches = db.Watches.Include(w => w.Brand);
+            var watches = db.Watches;
             var brands = db.Brands;
             LayoutViewModel viewModel = new LayoutViewModel();
             viewModel.Brands = brands.ToList();

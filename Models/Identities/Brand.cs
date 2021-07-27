@@ -14,5 +14,7 @@ namespace ADKT_WebProject.Models.Identities
         [Required]
         [StringLength(255)]
         public string name { set; get; }
+
+        public string brandBanner { set; get; }
     }
 }

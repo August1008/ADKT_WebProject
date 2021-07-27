@@ -48,7 +48,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,name")] Brand brand)
+        public ActionResult Create(Brand brand)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,name")] Brand brand)
+        public ActionResult Edit(Brand brand)
         {
             if (ModelState.IsValid)
             {

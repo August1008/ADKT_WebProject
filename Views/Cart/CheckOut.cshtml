@@ -50,12 +50,14 @@
             }
         </tbody>
     </table>
-
+    <h4>Total payment: @ViewBag.totalPayment$</h4>
     <div class="divDatHang">
-        @using(Html.BeginForm("PlaceOrder","Cart"))
-            {
-                <input type="submit" value="Place Order" class="btn btn-secondary btn-lg"/>
-                @Html.ActionLink("Buy more", "Index", "Watches", new {@class="btn btn-info"})
-            }
+        @using (Html.BeginForm("PlaceOrder", "Cart"))
+        {
+            <input type="submit" value="Place Order" class="btn btn-secondary btn-lg" />
+            @Html.ActionLink("Buy More", "Index", new { Controller = "Watches" }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Cancel Order", "DeleteOrder", null, new { @class = "btn btn-danger" })
+        }
+
     </div>
 </div>

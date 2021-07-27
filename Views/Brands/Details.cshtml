@@ -78,6 +78,10 @@
     </div>
 </div>
 
+<div class="page-head">
+    <img src="~/images/@ViewBag.brand.brandBanner" style="width:100%;max-height:450px;" />
+</div>
+
 <div>
 
     <hr />
@@ -108,7 +112,7 @@
                 <!-- //price range -->
                 <!-- food preference -->
                 <div class="left-side">
-                    <h3 class="agileits-sear-head">Giới tính</h3>
+                    <h3 class="agileits-sear-head">Gender</h3>
                     <ul>
                         <li>
                             <input type="checkbox" class="checked">
@@ -146,7 +150,7 @@
                             <div class="col-md-4 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <img src="~/images/6_FAC00005W0-1-399x399.jpg" alt="">
+                                        <img src="~/images/@item.Img_Path" alt="">
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 @*<a href="single.html" class="link-product-add-cart">Quick View</a>*@
@@ -157,27 +161,21 @@
                                     </div>
                                     <div class="item-info-product ">
                                         <h4>
-                                            <a href="single.html">@Html.DisplayFor(modelItem => item.name) </a>
+                                            <a href="@Url.Action("Details","Watches",new{id=item.Id})">@Html.DisplayFor(modelItem => item.name) </a>
                                         </h4>
                                         <div class="info-product-price">
                                             <span class="item_price">@Html.DisplayFor(modelItem => item.price) </span>
-                                            <del>$280.00</del>
+
                                         </div>
+
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value=@item.name />
-                                                    <input type="hidden" name="amount" value=@item.price />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                </fieldset>
-                                            </form>
+
+
+                                            <a href="@Url.Action("AddItem","Cart",new { ItemId = item.Id,strUrl=Request.Url.ToString()})">
+                                                <input type="submit" value="Add to cart" class="button" />
+                                            </a>
+
+
                                         </div>
 
                                     </div>

@@ -96,7 +96,20 @@ namespace ADKT_WebProject.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(watch).State = EntityState.Modified;
+                
+                //db.Entry(watch).State = EntityState.Modified;
+                var editWatch = db.Watches.Find(watch.Id);
+                editWatch.name = watch.name;
+                editWatch.price = watch.price;
+                editWatch.number = watch.number;
+                editWatch.strap = watch.strap;
+                editWatch.glass = watch.glass;
+                editWatch.gender = watch.gender;
+                editWatch.waterproof = watch.waterproof;
+                editWatch.BrandId = watch.BrandId;
+                if (watch.Img_Path != null) editWatch.Img_Path = watch.Img_Path;
+                if (watch.Img_Path1 != null) editWatch.Img_Path1 = watch.Img_Path1;
+                if (watch.Img_Path2 != null) editWatch.Img_Path2 = watch.Img_Path2;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
